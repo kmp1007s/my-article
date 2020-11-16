@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import * as ctrl from './controller';
+import * as ctrl from './ctrl';
 
 const search = Router();
 

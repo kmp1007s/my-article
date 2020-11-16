@@ -1,7 +1,7 @@
-import { asyncWrapper } from '@module/async';
+import { asyncWrapper } from '@lib/async';
 import { SearchResult as ArticleSearchResult } from 'types/naver/article';
 import { SearchResult as PediaSearchResult } from 'types/naver/pedia';
-import { request } from '@module/axios';
+import { request } from '@lib/axios';
 
 export const searchArticles = asyncWrapper(async (req, res) => {
   console.log(req.query);

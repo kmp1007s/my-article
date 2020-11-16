@@ -1,7 +1,7 @@
 import path from 'path';
 import dotenv from 'dotenv';
 
-export default () => {
+export const loadEnvVars = () => {
   dotenv.config({
     path: path.resolve(
       process.cwd(),

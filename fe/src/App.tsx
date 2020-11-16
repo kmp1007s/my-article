@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import Button from "./atom/Button";
+import Input from "./atom/Input";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <div>
+        <h1>NewsPedia</h1>
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          뉴스피디아는 기사와 사전을 동시에 검색하고 관심가는 기사를 따로 저장할
+          수 있는 복합검색, 저장사이트입니다.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </div>
+      <div>
+        <div>
+          <label htmlFor="radioNews">뉴스</label>
+          <input type="radio" id="radioNews" name="radioSearch" />
+          <label htmlFor="radioPedia">사전</label>
+          <input type="radio" id="radioPedia" name="radioSearch" />
+        </div>
+        <Input type="text" placeholder="검색" />
+        <Button>검색</Button>
+      </div>
     </div>
   );
 }

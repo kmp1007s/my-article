@@ -1,5 +1,5 @@
-import { asyncWrapper } from '@module/async';
-import articleModel from '@model/article';
+import { asyncWrapper } from '@lib/async';
+import articleModel from '@models/article';
 
 export const getAllArticles = asyncWrapper(async (req, res) => {
   const articles = await articleModel.getAllArticles();

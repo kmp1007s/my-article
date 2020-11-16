@@ -1,7 +1,11 @@
-import setUp from './setup';
-setUp();
+import * as Env from './modules/env';
+import * as Loader from './modules/loader';
 
-import { ExpressServer } from './server';
+Env.loadEnvVars();
+Loader.setAlias();
 
-const port = Number(process.env.PORT) || 8080;
-new ExpressServer(port).start();
+import * as Server from '@modules/server';
+import * as Database from '@modules/database';
+
+Database.connect();
+Server.run();

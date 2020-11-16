@@ -14,14 +14,18 @@ ArticleSchema.statics.saveArticle = async function (param: {
   title: string;
   link: string;
 }) {
-  const { title, link } = param;
-  if (title && link) {
-    const savedArticle = await new this({
-      title,
-      link,
-    }).save();
+  try {
+    const { title, link } = param;
+    if (title && link) {
+      const savedArticle = await new this({
+        title,
+        link,
+      }).save();
 
-    return savedArticle;
+      return savedArticle;
+    }
+  } catch (e) {
+    console.error('필수 파라미터 없음');
   }
 };
 
