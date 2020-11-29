@@ -23,7 +23,7 @@ export default function MyListButtonContainer(props: Props) {
     }, [dispatch]);
 
     return (
-    <Button onClick={onClick}>
+    <Button outline onClick={onClick}>
         마이 리스트
     </Button>
     )

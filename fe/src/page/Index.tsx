@@ -13,7 +13,7 @@ import styled from "styled-components";
 import {radioData} from "constant/radioData";
 
 import SearchedItemsContainer from "container/SearchedItemsContainer";
-import SavedArticlesContainer from "container/SavedArticlesContainer";
+import SavedArticles from "container/SavedArticlesContainer";
 
 import {useSelector} from "react-redux";
 import { RootState } from "modules";
@@ -26,6 +26,13 @@ padding: 16px;
 const SearchContainer = styled.div`
 text-align: center;
 padding: 16px;
+`;
+
+const SavedArticlesContainer = styled.div`
+width: 50%;
+position: relative;
+left: 50%;
+transform: translateX(-50%);
 `;
 
 const titleAndDescriptionWithImageProps = {
@@ -42,9 +49,9 @@ export default function Index() {
         <TitleAndDescriptionWithImage {...titleAndDescriptionWithImageProps} />
         {
             getArticles && 
-            <>
-                <SavedArticlesContainer />
-            </>
+            <SavedArticlesContainer>
+                <SavedArticles />
+            </SavedArticlesContainer>
         }
         {
             search && 

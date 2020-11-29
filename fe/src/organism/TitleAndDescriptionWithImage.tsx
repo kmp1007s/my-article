@@ -65,8 +65,10 @@ export default function TitleAndDescriptionWithImage(props: Props) {
             <ImgBg src={props.imgSrc}>
                 <Title>{props.title}</Title>
                 <Description>{props.description}</Description>
-                <MyListButton />
-                <GoSearchButton />
+                <div>
+                    <MyListButton />
+                    <GoSearchButton />
+                </div>
             </ImgBg>
         </Container>
     );

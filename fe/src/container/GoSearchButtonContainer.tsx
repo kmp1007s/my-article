@@ -18,7 +18,7 @@ export default function GoSearchButtonContainer(props: Props) {
     }, [dispatch]);
 
     return (
-    <Button onClick={onClick}>
+    <Button outline onClick={onClick}>
         검색하기
     </Button>
     )
