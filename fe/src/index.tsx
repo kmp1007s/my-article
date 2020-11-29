@@ -5,16 +5,25 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 import {BrowserRouter} from "react-router-dom";
-import {ThemeProvider} from "styled-components";
 
-import theme from "./schema/theme";
+import {Provider} from "react-redux";
+import {createStore} from "redux";
+
+import {composeWithDevTools} from "redux-devtools-extension";
+
+import rootReducer from "./modules";
+
+const store = createStore(
+  rootReducer,
+  composeWithDevTools()
+);
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <ThemeProvider theme={theme}>
+      <Provider store={store}>
         <App />
-      </ThemeProvider>  
+      </Provider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

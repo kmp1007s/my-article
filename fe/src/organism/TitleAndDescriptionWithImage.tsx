@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const Title = styled.h1`
-color: ${props => props.theme.white};
+color: ${props => props.theme.color.white};
 font-size: 2rem;
 margin: 6px;
 `;
 
 const Description = styled.p`
-color: ${props => props.theme.white};
+color: ${props => props.theme.color.white};
 font-size: 1rem;
 `;
 
@@ -44,7 +44,7 @@ const BlackEffecter = styled.div`
 position: absolute;
 width: 100%;
 height: 100%;
-background: ${props => props.theme.black};
+background: ${props => props.theme.color.black};
 opacity: 0.65;
 z-index: 3; 
 `;

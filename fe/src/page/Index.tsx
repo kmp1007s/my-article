@@ -1,11 +1,27 @@
 import React from "react";
 
-import Button from "atom/Button";
-import Input from "atom/Input";
+import RadioGroup from "molecule/RadioGroup";
 
 import TitleAndDescriptionWithImage from "organism/TitleAndDescriptionWithImage";
 
+import SearchWithState from "container/SearchContainer";
+
 import bgImg from "asset/bar-621033_1920.jpg";
+
+import styled from "styled-components";
+
+import {radioData} from "constant/radioData";
+import SearchedArticleContainer from "container/SearchedArticleContainer";
+
+const RadioGroupContainer = styled.div`
+text-align: center;
+padding: 16px;
+`;
+
+const SearchContainer = styled.div`
+text-align: center;
+padding: 16px;
+`;
 
 const titleAndDescriptionWithImageProps = {
     title: "NewsPedia",
@@ -17,15 +33,12 @@ export default function Index() {
     return (
     <div>
         <TitleAndDescriptionWithImage {...titleAndDescriptionWithImageProps} />
-        <div>
-            <div>
-            <label htmlFor="radioNews">뉴스</label>
-            <input type="radio" id="radioNews" name="radioSearch" />
-            <label htmlFor="radioPedia">사전</label>
-            <input type="radio" id="radioPedia" name="radioSearch" />
-            </div>
-            <Input type="text" placeholder="검색" />
-            <Button>검색</Button>
-        </div>
+        <RadioGroupContainer>
+            <RadioGroup groupName="radioSearch" data={radioData} />
+        </RadioGroupContainer>
+        <SearchContainer>
+            <SearchWithState />
+        </SearchContainer>
+        <SearchedArticleContainer />
     </div>)
 }

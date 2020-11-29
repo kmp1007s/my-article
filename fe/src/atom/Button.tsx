@@ -1,11 +1,7 @@
-import React from "react";
+import styled from "styled-components";
 
-type Props = {
-  children: React.ReactNode;
-};
+const Button = styled.button`
 
-function Button({ children }: Props) {
-  return <button>{children}</button>;
-}
+`;
 
 export default Button;
