@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
+import MyListButton from "container/MyListButtonContainer";
+import GoSearchButton from "container/GoSearchButtonContainer";
+
 const Title = styled.h1`
 color: ${props => props.theme.color.white};
 font-size: 2rem;
@@ -62,6 +65,8 @@ export default function TitleAndDescriptionWithImage(props: Props) {
             <ImgBg src={props.imgSrc}>
                 <Title>{props.title}</Title>
                 <Description>{props.description}</Description>
+                <MyListButton />
+                <GoSearchButton />
             </ImgBg>
         </Container>
     );

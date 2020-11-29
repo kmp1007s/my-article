@@ -1,34 +1,33 @@
 import React from "react";
 import styled from "styled-components";
 
-const Container = styled.a`
-    display: block;
+const Container = styled.div`
+    width: 100%;
     padding: 16px;
-    text-decoration: none;
 `;
 
-const Title = styled.b`
-    display: block;
+const Title = styled.a`
+    text-decoration: none;
+    display: inline-block;
     margin: 8px 0px;
+    font-weight: bold;
 `;
 
 const Description = styled.span`
     display: block;
-
 `;
 
 const PubDate = styled.span`
-    display: block;
-    margin-top: 2px;
+    display: inline-block;
+    margin-top: 8px;
 `;
 
-type Props = {
-    link?: string;
-    title: string;
-    description: string;
-    pubDate?: string;
-    originallink?: string;
-};
+const SaveText = styled.span`
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 12px;
+    text-decoration: underline;
+`;
 
 function simplizeDay(day: string) {
     return day.split("요일")[0];
@@ -56,10 +55,20 @@ function removeTag(text: string) {
     return text.replace(/<\/?[^>]+(>|$)/g, "");
 }
 
+type Props = {
+    link?: string;
+    title: string;
+    description: string;
+    pubDate?: string;
+    originallink?: string;
+    onSave: (e?: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
+};
+
 export default function SearchedItem(props: Props) {
     return (
-    <Container href={props.originallink || props.link} target="_blank">
-        <Title>{removeTag(props.title)}</Title>
+    <Container>
+        <Title href={props.originallink || props.link} target="_blank">{removeTag(props.title)}</Title>
+        <SaveText onClick={props.onSave}>저장</SaveText>
         <Description>{removeTag(props.description)}</Description>
         {props.pubDate && <PubDate>{parseDate(props.pubDate)}</PubDate>}
     </Container>

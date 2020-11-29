@@ -1,9 +1,13 @@
 import {combineReducers} from "redux";
 
 import search from "./search";
+import article from "./article";
+import mode from "./mode";
 
 const rootReducer = combineReducers({
-    search
+    search,
+    article,
+    mode
 });
 
 export default rootReducer;

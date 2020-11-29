@@ -11,7 +11,12 @@ import bgImg from "asset/bar-621033_1920.jpg";
 import styled from "styled-components";
 
 import {radioData} from "constant/radioData";
-import SearchedArticleContainer from "container/SearchedArticleContainer";
+
+import SearchedItemsContainer from "container/SearchedItemsContainer";
+import SavedArticlesContainer from "container/SavedArticlesContainer";
+
+import {useSelector} from "react-redux";
+import { RootState } from "modules";
 
 const RadioGroupContainer = styled.div`
 text-align: center;
@@ -30,15 +35,28 @@ const titleAndDescriptionWithImageProps = {
 }
 
 export default function Index() {
+    const {getArticles, search} = useSelector((state: RootState) => state.mode);
+
     return (
     <div>
         <TitleAndDescriptionWithImage {...titleAndDescriptionWithImageProps} />
-        <RadioGroupContainer>
-            <RadioGroup groupName="radioSearch" data={radioData} />
-        </RadioGroupContainer>
-        <SearchContainer>
-            <SearchWithState />
-        </SearchContainer>
-        <SearchedArticleContainer />
+        {
+            getArticles && 
+            <>
+                <SavedArticlesContainer />
+            </>
+        }
+        {
+            search && 
+            <>
+                <RadioGroupContainer>
+                    <RadioGroup groupName="radioSearch" data={radioData} />
+                </RadioGroupContainer>
+                <SearchContainer>
+                    <SearchWithState />
+                </SearchContainer>
+                <SearchedItemsContainer />
+            </>
+        }
     </div>)
 }
