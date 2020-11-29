@@ -1,6 +1,8 @@
 import express from 'express';
 import api from '../api';
 
+import cors from "cors";
+
 const port = process.env.PORT || 8080;
 const app = express();
 
@@ -11,6 +13,7 @@ async function setMiddleware() {
 
       app.use(express.static('public')); // static
       app.use(express.json()); // body-parser
+      app.use(cors());
       app.use('/api', api); // router
 
       resolve();
