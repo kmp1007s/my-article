@@ -8,6 +8,8 @@ import { RootState } from "modules";
 
 import * as api from "api/article";
 
+import {removeTag} from "lib/string";
+
 export default function SearchedItemsContainer() {
     const {articles, pedias} = useSelector((state: RootState) => state.search);
 
@@ -25,9 +27,9 @@ export default function SearchedItemsContainer() {
         title: string;
     }) => {
         try {
-            const {title} = param;
+            const title = removeTag(param.title);
             const link = param.originallink || param.link;
-    
+
             const {data} = (await api.saveArticle({title, link}));
             console.log(data);
     

@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
+import {removeTag} from "lib/string";
+
 const Container = styled.div`
     width: 100%;
-    padding: 16px;
+    padding: 36px;
 `;
 
 const Title = styled.a`
@@ -11,6 +13,11 @@ const Title = styled.a`
     display: inline-block;
     margin: 8px 0px;
     font-weight: bold;
+    transition: all 0.15s ease;
+
+    &:hover {
+        color: ${props => props.theme.color.darkGray};
+    }
 `;
 
 const Description = styled.span`
@@ -27,6 +34,7 @@ const SaveText = styled.span`
     display: inline-block;
     margin-left: 12px;
     text-decoration: underline;
+    color: ${props => props.theme.color.darkGray};
 `;
 
 function simplizeDay(day: string) {
@@ -48,11 +56,6 @@ function parseDate(dateStr: string) {
 
     dateStr = `${year}.${month}.${date} (${day}) ${hour}:${minute}`
     return dateStr;
-}
-
-function removeTag(text: string) {
-    text = text.replace(/&quot;/g, '\"');
-    return text.replace(/<\/?[^>]+(>|$)/g, "");
 }
 
 type Props = {
